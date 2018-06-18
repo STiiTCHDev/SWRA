@@ -1,6 +1,6 @@
 interface SWPlayerData {
-    runes: [SWRuneData];
-    unit_list: [{}];
+    runes: SWRuneData[];
+    unit_list: SWMonsterData[];
 }
 
 interface SWRuneData {
@@ -31,4 +31,8 @@ interface SWRuneData {
     class: number;
 
     upgrade_limit: number;
+}
+
+interface SWMonsterData {
+    runes: SWRuneData[];
 }

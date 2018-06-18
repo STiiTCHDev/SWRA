@@ -1,34 +1,36 @@
 import {Component, OnInit} from '@angular/core';
 import {Rune} from './models/Rune';
+import { DataLoaderService } from './services/DataLoader.service';
+import { Attribute } from './models/Stats';
 
 @Component({
-    selector: 'app',
+    selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
 
-    constructor() {
+    private dataloader: DataLoaderService;
+    private data: SWPlayerData;
+    private runes: Rune[];
 
-        let data: SWPlayerData = this.loadPlayerData();
+    constructor(public dataLoaderService: DataLoaderService) {
 
-        let runes = [];
-        for(let runeData of data.runes) {
-            runes.push(new Rune(runeData));
+        this.dataloader = dataLoaderService;
+        this.dataloader.loadPlayerData('./src/app/data/playerdata.json');
+        this.runes = this.dataloader.getRunes();
+
+        // console.log(this.data);
+        console.log(this.runes);
+
+        const test = [];
+        for (const rune of this.runes) {
+            if (rune.Main.Type === Attribute.AttackPercent) {
+                test.push(rune);
+            }
         }
 
-        console.log(runes);
-    }
-
-    ngOnInit() {
-
-    }
-
-    loadPlayerData(): SWPlayerData {
-        let file = window.fs.readFileSync('./src/app/data/playerdata.json', 'utf-8');
-        let data: SWPlayerData = JSON.parse(file);
-
-        return data;
+        console.log(test);
     }
 
 }
