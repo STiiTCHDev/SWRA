@@ -1,10 +1,9 @@
 /**
  * Types of runes sets enum
  */
-
 export enum RuneSet {
-    Null = 0, //No Set
-    
+    Null = 0, // No Set
+
     Energy, // Health
     Guard, // Def
     Swift, // Speed

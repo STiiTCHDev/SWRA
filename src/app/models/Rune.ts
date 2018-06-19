@@ -3,18 +3,17 @@
  */
 
 import {RuneAttr} from './RuneAttr';
-import {Attribute} from './Stats';
 import {RuneSet} from './RuneSet';
 
 export class Rune {
 
     private _data: SWRuneData;
 
-    Main: RuneAttr;
-    Innate: RuneAttr;
-    Subs: RuneAttr[];
+    public Main: RuneAttr;
+    public Innate: RuneAttr;
+    public Subs: RuneAttr[];
 
-    constructor(runeData: SWRuneData) {
+    public constructor(runeData: SWRuneData) {
         this._data = runeData;
 
         this.Main = new RuneAttr(runeData.pri_eff);
@@ -29,27 +28,43 @@ export class Rune {
         }
     }
 
-    get Id(): number {
+    public get Id(): number {
         return this._data.rune_id;
     }
 
-    get AssignedId(): number {
+    public get AssignedId(): number {
         return this._data.occupied_id;
     }
 
-    get Slot(): number {
+    public get Slot(): number {
         return this._data.slot_no;
     }
 
-    get SetName(): string {
+    /**
+     * Rune Set type name
+     */
+    public get SetName(): string {
         return RuneSet[this._data.set_id];
     }
 
-    get Grade(): number {
+    /**
+     * Rune Grade (star number)
+     */
+    public get Grade(): number {
         return this._data.class;
     }
 
-    get Level(): number {
+    /**
+     * Rune upgrade level
+     */
+    public get Level(): number {
         return this._data.upgrade_curr;
+    }
+
+    /**
+     * Rune Rarity (color)
+     */
+    public get Rarity(): number {
+        return this.Subs.length;
     }
 }

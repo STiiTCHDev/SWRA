@@ -2,12 +2,12 @@ import {Attribute} from './Stats';
 
 export class RuneAttr {
 
-    Type: Attribute;
+    public Type: Attribute;
     private value: number;
-    Enchanted: number;
-    GrindBonus: number;
+    public Enchanted: number;
+    public GrindBonus: number;
 
-    constructor(attrProperties: [number]) {
+    public constructor(attrProperties: [number]) {
         this.Type = attrProperties[0];
         this.value = attrProperties[1];
         this.Enchanted = -1;
@@ -22,28 +22,28 @@ export class RuneAttr {
         }
     }
 
-    get TypeName(): string {
+    public get TypeName(): string {
         return Attribute[this.Type];
     }
 
-    get Value(): number {
+    public get Value(): number {
         return this.value + (this.GrindBonus > 0 ? this.GrindBonus : 0);
     }
 
-    set Value(value: number) {
+    public set Value(value: number) {
         this.value = value;
         this.GrindBonus = 0;
     }
 
-    get IsEnchanted(): boolean {
+    public get IsEnchanted(): boolean {
         return this.Enchanted === 1;
     }
 
-    get IsGrinded(): boolean {
+    public get IsGrinded(): boolean {
         return this.GrindBonus > 0;
     }
 
-    toString(): string {
+    public toString(): string {
         return this.TypeName + ' +' + this.Value;
     }
 
