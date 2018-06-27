@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Rune} from './models/Rune';
 import { DataLoaderService } from './services/DataLoader.service';
-import { Attribute } from './models/Stats';
+import { Attribute } from './models/enums/Stats';
 
 @Component({
     selector: 'app-root',
@@ -18,7 +18,8 @@ export class AppComponent {
 
         this.dataloader = dataLoaderService;
         this.dataloader.loadPlayerData('./src/app/data/playerdata.json');
-        this.runes = this.dataloader.getRunes();
+        this.dataloader.loadMonstersData();
+        this.runes = this.dataloader.Runes;
 
         // console.log(this.data);
         console.log(this.runes);

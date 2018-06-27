@@ -1,19 +1,39 @@
 /**
  * Summoners War Rune
  */
-
 import {RuneAttr} from './RuneAttr';
-import {RuneSet} from './RuneSet';
+import {RuneSet} from './enums/RuneSet';
+import {Monster} from './Monster';
+
 
 export class Rune {
 
+    /**
+     * Raw Rune data
+     */
     private _data: SWRuneData;
 
+    /**
+     * Monster owner
+     */
+    private _owner: Monster;
+
+    /**
+     * Rune Main attribute
+     */
     public Main: RuneAttr;
+
+    /**
+     * Rune Innate attribute
+     */
     public Innate: RuneAttr;
+
+    /**
+     * Rune Subs attributes array
+     */
     public Subs: RuneAttr[];
 
-    public constructor(runeData: SWRuneData) {
+    public constructor(runeData: SWRuneData, owner: Monster = null) {
         this._data = runeData;
 
         this.Main = new RuneAttr(runeData.pri_eff);
@@ -26,6 +46,10 @@ export class Rune {
         for (const sub of runeData.sec_eff) {
             this.Subs.push(new RuneAttr(sub));
         }
+
+        if (owner !== undefined) {
+            this._owner = owner;
+        }
     }
 
     public get Id(): number {
@@ -36,6 +60,10 @@ export class Rune {
         return this._data.occupied_id;
     }
 
+    public get IsAssigned(): boolean {
+        return this._data.occupied_id !== 0;
+    }
+
     public get Slot(): number {
         return this._data.slot_no;
     }
@@ -43,7 +71,7 @@ export class Rune {
     /**
      * Rune Set type name
      */
-    public get SetName(): string {
+    public get SetTypeName(): string {
         return RuneSet[this._data.set_id];
     }
 
@@ -66,5 +94,13 @@ export class Rune {
      */
     public get Rarity(): number {
         return this.Subs.length;
+    }
+
+    public get Owner(): Monster {
+        if (this._owner !== undefined) {
+            return this._owner;
+        }
+
+        return null;
     }
 }

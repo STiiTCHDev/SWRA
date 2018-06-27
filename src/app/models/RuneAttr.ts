@@ -1,4 +1,4 @@
-import {Attribute} from './Stats';
+import {Attribute} from './enums/Stats';
 
 export class RuneAttr {
 
