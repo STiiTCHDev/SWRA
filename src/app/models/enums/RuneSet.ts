@@ -1,5 +1,5 @@
 /**
- * Types of runes sets enum
+ * SW Rune sets types enum
  */
 export enum RuneSet {
     Null = 0, // No Set

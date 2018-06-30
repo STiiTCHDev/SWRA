@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {DataLoaderService} from './services/DataLoader.service';
+
 import {Rune} from './models/Rune';
-import { DataLoaderService } from './services/DataLoader.service';
-import { Attribute } from './models/enums/Stats';
 
 @Component({
     selector: 'app-root',
@@ -20,18 +20,5 @@ export class AppComponent {
         this.dataloader.loadPlayerData('./src/app/data/playerdata.json');
         this.dataloader.loadMonstersData();
         this.runes = this.dataloader.Runes;
-
-        // console.log(this.data);
-        console.log(this.runes);
-
-        const test = [];
-        for (const rune of this.runes) {
-            if (rune.Main.Type === Attribute.AttackPercent) {
-                test.push(rune);
-            }
-        }
-
-        console.log(test);
     }
-
 }

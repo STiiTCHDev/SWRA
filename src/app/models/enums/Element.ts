@@ -1,5 +1,5 @@
 /**
- * Elements enum
+ * SW Elements Enum
  */
 export enum Element {
     Pure = 0,

@@ -1,5 +1,5 @@
 /**
- * Stats classes
+ * SW Stats enum
  */
 
 export enum Attribute {
