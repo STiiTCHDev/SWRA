@@ -1,0 +1,25 @@
+<h2>Accueil</h2>
+
+<div class="Summary">
+    <h3>Récapitulatif:</h3>
+    <div class="Summary-Chips">
+        <mat-chip-list class="mat-chip-list-stacked">
+            <mat-chip *ngFor="let chip of Chips" selected="true" color="">
+                {{chip.name}}: {{chip.value}}
+            </mat-chip>
+        </mat-chip-list>
+    </div>
+</div>
+
+<mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="setType">
+        <mat-header-cell *matHeaderCellDef>Set</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.SetTypeName}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<mat-paginator [pageSize]="10" [pageSizeOptions]="[10, 20]" [showFirstLastButtons]="true">
+</mat-paginator>
