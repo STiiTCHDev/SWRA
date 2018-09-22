@@ -1,37 +1,28 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatTableDataSource } from '@angular/material';
-import { DataLoaderService } from '../../services/data-loader.service';
+import { Component, OnInit } from '@angular/core';
 import { Rune } from '../../models/Rune';
+import { RunesContainerService } from '../../services/runes-container.service';
 
 @Component({
     selector: 'app-runes-list',
     templateUrl: './runes-list.component.html',
     styleUrls: ['./runes-list.component.scss']
 })
-export class RunesListComponent implements OnInit, AfterViewInit {
+export class RunesListComponent implements OnInit {
 
-    runes: Rune[];
-    displayedColumns = ['setType'];
-    dataSource: MatTableDataSource<any>;
+    constructor(public runesContainer: RunesContainerService) { }
 
-    @ViewChild(MatPaginator)
-    paginator: MatPaginator;
+    ngOnInit() { }
 
-    constructor(private dataloader: DataLoaderService) { }
+    getStarsCount(grade: number): any[] {
+    const array = [];
+        for (let i = 0; i < grade; i++) {
+            array.push(i);
+        }
 
-    ngOnInit() {
-        this.runes = this.dataloader.Runes;
-        this.dataSource = new MatTableDataSource(this.runes);
+        return array;
     }
 
-    ngAfterViewInit() {
-        this.dataSource.paginator = this.paginator;
+    getSetImageSrc(setTypeName: string): string {
+        return 'assets/runes/sets/' + setTypeName.toLowerCase() + '.png';
     }
-
-    get Chips(): any[] {
-        return [
-            {name: 'Nombre de runes', value: this.runes.length}
-        ];
-    }
-
 }

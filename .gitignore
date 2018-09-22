@@ -44,3 +44,15 @@ Thumbs.db
 
 # Electron
 /packages
+
+npm-debug\.log\.*
+
+dev-start\.bat
+
+\.vs/ProjectSettings\.json
+
+\.vs/slnx\.sqlite
+
+\.vs/SWRA/v15/\.suo
+
+\.vs/VSWorkspaceState\.json

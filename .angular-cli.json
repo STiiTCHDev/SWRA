@@ -20,7 +20,13 @@
         "testTsconfig": "tsconfig.spec.json",
         "prefix": "app",
         "styles": [
-            "styles.scss"
+            "styles.scss",
+            "../node_modules/primeicons/primeicons.css",
+            { "input": "../node_modules/primeng/resources/themes/nova-light/theme.css", "lazy": true, "output": "nova-light" },
+            { "input": "../node_modules/primeng/resources/themes/nova-dark/theme.css", "lazy": true, "output": "nova-dark" },
+            { "input": "../node_modules/primeng/resources/themes/nova-colored/theme.css", "lazy": true, "output": "nova-colored" },
+            { "input": "../node_modules/primeng/resources/themes/luna-amber/theme.css", "lazy": true, "output": "luna-amber" },
+            "../node_modules/primeng/resources/primeng.min.css"
         ],
         "scripts": [
             "native.js"
