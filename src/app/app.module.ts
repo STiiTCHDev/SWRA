@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { MenuModule } from 'primeng/menu';
 import { DataViewModule } from 'primeng/dataview';
 import { PanelModule } from 'primeng/panel';
+import { ListboxModule } from 'primeng/listbox';
+import { DropdownModule } from 'primeng/dropdown';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -15,6 +17,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 
 import { DataLoaderService } from './services/data-loader.service';
 import { RunesContainerService } from './services/runes-container.service';
+import { ThemeSelectorService } from './services/theme-selector.service';
 
 @NgModule({
     declarations: [
@@ -30,9 +33,14 @@ import { RunesContainerService } from './services/runes-container.service';
 
         MenuModule,
         DataViewModule,
-        PanelModule
+        PanelModule,
+        ListboxModule,
+        DropdownModule
     ],
-    providers: [DataLoaderService, RunesContainerService],
+    providers: [
+        DataLoaderService,
+        RunesContainerService,
+        ThemeSelectorService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

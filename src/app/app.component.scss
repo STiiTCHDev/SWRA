@@ -1,15 +1,37 @@
 :host {
-    display: flex;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    display: flex;
+    align-items: stretch;
+}
+
+:host ::ng-deep .ui-menu {
+    height: 100%;
+    border-radius: 0;
 }
 
 .Content {
     flex: 1;
     position: relative;
     overflow: auto;
-    padding: 20px;
+}
+
+:host ::ng-deep .Content>*>*>.ui-panel {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0;
+}
+
+:host ::ng-deep .Content>*>*>*>.ui-panel-titlebar {
+    height: 40px;
+    border-radius: 0;
+}
+
+:host ::ng-deep .Content>*>*>*>.ui-panel-content-wrapper,
+:host ::ng-deep .Content>*>*>*>*>.ui-panel-content {
+    height: 100%;
 }

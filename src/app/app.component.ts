@@ -7,6 +7,7 @@ import { MenuModule } from 'primeng/menu';
 import { MenuItem } from 'primeng/api';
 import { DOCUMENT } from '@angular/platform-browser';
 import { RunesContainerService } from './services/runes-container.service';
+import { ThemeSelectorService } from './services/theme-selector.service';
 
 @Component({
     selector: 'app-root',
@@ -19,13 +20,7 @@ export class AppComponent implements OnInit {
 
     constructor(private dataLoader: DataLoaderService,
             private runesContainer: RunesContainerService,
-            @Inject(DOCUMENT) private document: Document) {
-
-        // Dynamic theme loading
-        const styleElement = this.document.createElement('script');
-        styleElement.src = 'nova-dark.bundle.js';
-        this.document.head.appendChild(styleElement);
-    }
+            private themeSelector: ThemeSelectorService) { }
 
     ngOnInit() {
         // Loading data

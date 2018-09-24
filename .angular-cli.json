@@ -22,10 +22,30 @@
         "styles": [
             "styles.scss",
             "../node_modules/primeicons/primeicons.css",
+            { "input": "../node_modules/primeng/resources/themes/bootstrap/theme.css", "lazy": true, "output": "bootstrap" },
+            { "input": "../node_modules/primeng/resources/themes/cruze/theme.css", "lazy": true, "output": "cruze" },
+            { "input": "../node_modules/primeng/resources/themes/cupertino/theme.css", "lazy": true, "output": "cupertino" },
+            { "input": "../node_modules/primeng/resources/themes/darkness/theme.css", "lazy": true, "output": "darkness" },
+            { "input": "../node_modules/primeng/resources/themes/flick/theme.css", "lazy": true, "output": "flick" },
+            { "input": "../node_modules/primeng/resources/themes/home/theme.css", "lazy": true, "output": "home" },
+            { "input": "../node_modules/primeng/resources/themes/kasper/theme.css", "lazy": true, "output": "kasper" },
+            { "input": "../node_modules/primeng/resources/themes/lightness/theme.css", "lazy": true, "output": "lightness" },
+            { "input": "../node_modules/primeng/resources/themes/ludvig/theme.css", "lazy": true, "output": "ludvig" },
+            { "input": "../node_modules/primeng/resources/themes/luna-amber/theme.css", "lazy": true, "output": "luna-amber" },
+            { "input": "../node_modules/primeng/resources/themes/luna-blue/theme.css", "lazy": true, "output": "luna-blue" },
+            { "input": "../node_modules/primeng/resources/themes/luna-green/theme.css", "lazy": true, "output": "luna-green" },
+            { "input": "../node_modules/primeng/resources/themes/luna-pink/theme.css", "lazy": true, "output": "luna-pink" },
             { "input": "../node_modules/primeng/resources/themes/nova-light/theme.css", "lazy": true, "output": "nova-light" },
             { "input": "../node_modules/primeng/resources/themes/nova-dark/theme.css", "lazy": true, "output": "nova-dark" },
             { "input": "../node_modules/primeng/resources/themes/nova-colored/theme.css", "lazy": true, "output": "nova-colored" },
-            { "input": "../node_modules/primeng/resources/themes/luna-amber/theme.css", "lazy": true, "output": "luna-amber" },
+            { "input": "../node_modules/primeng/resources/themes/omega/theme.css", "lazy": true, "output": "omega" },
+            { "input": "../node_modules/primeng/resources/themes/pepper-grinder/theme.css", "lazy": true, "output": "pepper-grinder" },
+            { "input": "../node_modules/primeng/resources/themes/redmond/theme.css", "lazy": true, "output": "redmond" },
+            { "input": "../node_modules/primeng/resources/themes/rocket/theme.css", "lazy": true, "output": "rocket" },
+            { "input": "../node_modules/primeng/resources/themes/south-street/theme.css", "lazy": true, "output": "south-street" },
+            { "input": "../node_modules/primeng/resources/themes/start/theme.css", "lazy": true, "output": "start" },
+            { "input": "../node_modules/primeng/resources/themes/trontastic/theme.css", "lazy": true, "output": "trontastic" },
+            { "input": "../node_modules/primeng/resources/themes/voclain/theme.css", "lazy": true, "output": "voclain" },
             "../node_modules/primeng/resources/primeng.min.css"
         ],
         "scripts": [
@@ -62,6 +82,9 @@
     },
     "defaults": {
         "styleExt": "scss",
-        "component": {}
+        "component": {},
+        "serve": {
+            "extract-css": "true"
+        }
     }
 }

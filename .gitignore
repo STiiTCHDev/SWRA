@@ -56,3 +56,5 @@ dev-start\.bat
 \.vs/SWRA/v15/\.suo
 
 \.vs/VSWorkspaceState\.json
+
+\.vscode/settings\.json

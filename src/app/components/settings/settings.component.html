@@ -1,1 +1,8 @@
-<h2>Paramètres</h2>
+<p-panel>
+    <p-header>Paramètres</p-header>
+    <p-panel>
+        <p-header>Personnalisation</p-header>
+        <label for="">Thème: </label>
+        <p-dropdown [options]="themeSelector.themes" [(ngModel)]="themeSelector.ActiveTheme"></p-dropdown>
+    </p-panel>
+</p-panel>
